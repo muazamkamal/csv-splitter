@@ -26,13 +26,13 @@ def split_file(filename, header_size, chunk_size):
     if not os.path.exists('outputs'):
         os.mkdir('outputs')
 
-    with open(filename, "r", encoding='windows-1252') as big_file:
+    with open(filename, "r") as big_file:
         header = []
         for _ in range(header_size):
             header.append(big_file.readline())
         line = "SEED"
         while line:
-            outfile_name = f"outputs/{outfile_stub}-{outfile_number}.{outfile_extension}"
+            outfile_name = f"outputs/{outfile_stub}_{outfile_number}.{outfile_extension}"
             outfile_number += 1
             print(f"Outputting to file: {outfile_name}")
             with open(outfile_name, "w") as outfile:
